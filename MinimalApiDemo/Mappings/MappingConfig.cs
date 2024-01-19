@@ -11,6 +11,7 @@ namespace MinimalApiDemo.Mappings
             CreateMap<Coupon, CouponCreateDto>().ReverseMap();
             CreateMap<Coupon, CouponUpdateDto>().ReverseMap();
             CreateMap<Coupon, CouponDto>().ReverseMap();
+            CreateMap<LocalUser, UserDto>().ReverseMap();
         }
     }
 }

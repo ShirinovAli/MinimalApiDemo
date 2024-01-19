@@ -12,7 +12,8 @@ namespace MinimalApiDemo.Endpoints
     {
         public static async void ConfigureCouponEndpoints(this WebApplication app)
         {
-            app.MapGet("/api/coupon", GetAllCoupons).WithName("GetCoupons").Produces<ApiResponse>((int)HttpStatusCode.OK);
+            app.MapGet("/api/coupon", GetAllCoupons).WithName("GetCoupons")
+                    .Produces<ApiResponse>((int)HttpStatusCode.OK).RequireAuthorization("AdminOnly"); ;
 
             app.MapGet("/api/coupon/{id:int}", GetCoupon).WithName("GetCoupon").Produces<ApiResponse>((int)HttpStatusCode.OK);
 

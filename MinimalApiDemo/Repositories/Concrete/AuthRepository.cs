@@ -73,7 +73,7 @@ namespace MinimalApiDemo.Repositories.Concrete
                 Username = registrationRequestDto.Username,
                 Password = registrationRequestDto.Password,
                 Name = registrationRequestDto.Name,
-                Role = "admin"
+                Role = "customer"
             };
 
             await _context.LocalUsers.AddAsync(user);
