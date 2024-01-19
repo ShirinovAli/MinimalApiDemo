@@ -18,6 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ICouponRepository, CouponRepository>();
+builder.Services.AddTransient<IAuthRepository, AuthRepository>();
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
                               option.UseSqlServer(builder.Configuration.GetConnectionString("MsSql")));
 builder.Services.AddAutoMapper(typeof(MappingConfig));
@@ -34,5 +35,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.ConfigureCouponEndpoints();
+app.ConfigureAuthEndpoints();
 
 app.Run();
